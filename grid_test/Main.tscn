@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://reddj3fe053u"]
+
+[ext_resource type="Script" uid="uid://b5sy6221vr5x4" path="res://CameraController.gd" id="2_0h8ki"]
+[ext_resource type="Script" uid="uid://dxut5xht7sak2" path="res://GridPlane.gd" id="3_h7k9m"]
+[ext_resource type="Script" uid="uid://dic1hjh0lyf8r" path="res://FloorToolUI.gd" id="4_floor_ui"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_glv2v"]
+size = Vector2(20, 20)
+
+[node name="Main" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_glv2v")
+script = ExtResource("3_h7k9m")
+
+[node name="CameraController" type="Node3D" parent="."]
+script = ExtResource("2_0h8ki")
+
+[node name="Camera3D" type="Camera3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 20, 14)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 10, 0)
+shadow_enabled = true
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_floor_ui")
+
+[node name="Panel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -160.0
+offset_right = 110.0
+offset_bottom = -10.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2

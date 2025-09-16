@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk41r4op0s6ff"]
+
+[ext_resource type="Script" uid="uid://bou0qkq8ysq7w" path="res://TerrainBlock.gd" id="1_8x5r2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htsbj"]
+albedo_color = Color(0.626191, 0.301132, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_htsbj"]
+material = SubResource("StandardMaterial3D_htsbj")
+
+[sub_resource type="BoxMesh" id="BoxMesh_p2tmc"]
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r7shk"]
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_og28v"]
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8r53b"]
+size = Vector3(1, 1, 0.1)
+
+[node name="TerrainBlock" type="Node3D"]
+script = ExtResource("1_8x5r2")
+
+[node name="terrain_cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_htsbj")
+
+[node name="WallCladding" type="Node3D" parent="."]
+
+[node name="WallNorth" type="MeshInstance3D" parent="WallCladding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
+mesh = SubResource("BoxMesh_p2tmc")
+
+[node name="WallSouth" type="MeshInstance3D" parent="WallCladding"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.5, -0.5)
+mesh = SubResource("BoxMesh_r7shk")
+
+[node name="WallEast" type="MeshInstance3D" parent="WallCladding"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0.5, 0)
+mesh = SubResource("BoxMesh_og28v")
+
+[node name="WallWest" type="MeshInstance3D" parent="WallCladding"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.5, 0.5, 0)
+mesh = SubResource("BoxMesh_8r53b")
