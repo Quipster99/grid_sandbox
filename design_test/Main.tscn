@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://csylsti0lcgfn"]
+
+[ext_resource type="Script" uid="uid://c2wm1icd6f4ul" path="res://Main.gd" id="1_5lw8u"]
+[ext_resource type="Script" uid="uid://cp5xgeulrmgm" path="res://CameraController.gd" id="2_camera"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_5lw8u")
+
+[node name="CameraController" type="Node3D" parent="."]
+script = ExtResource("2_camera")
+pan_speed = 8.0
+rotation_speed = 3.0
+zoom_speed = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 10.5, 15)
+fov = 60.0
